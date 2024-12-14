@@ -15,9 +15,10 @@
 
 (local html-char (- any t-open))
 (local fennel-char (- any t-close))
+(local fennel-body (^ fennel-char 1))
 
 (local html-code (^ html-char 1))
-(local fennel-code (* t-open (^ fennel-char 0) t-close))
+(local fennel-code (* t-open fennel-body t-close))
 
 (local tsp (^ (+ fennel-code html-code) 1))
 

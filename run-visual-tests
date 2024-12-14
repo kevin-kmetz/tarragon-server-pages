@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+fennel ./tests/visual_tests.fnl
