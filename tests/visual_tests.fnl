@@ -4,3 +4,4 @@
 (set fennel.path (.. fennel.path ";./src/?.fnl;./src/?/init.fnl"))
 
 (require :tests/visual_test_01)
+(require :tests/visual_test_interpreter)

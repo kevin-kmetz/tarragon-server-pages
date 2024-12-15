@@ -4,7 +4,7 @@
 </head>
 <body>
     [==
-      (each [i v (ipairs [1 102 2003 30004 400005])
+      (each [i v (ipairs [1 102 2003 30004 400005])]
         (print (.. "<p>" "Index " i ": " v "</p>")))
     ==]
 </body>
