@@ -20,17 +20,36 @@
 (local html-code (^ html-char 1))
 (local fennel-code (* t-open fennel-body t-close))
 
-(local tsp (^ (+ fennel-code html-code) 1))
+(fn tag-html [captured-text]
+  {:language :html
+   :text captured-text})
 
-{
-  : tsp
+(fn tag-fennel [captured-text]
+  {:language :fennel
+   :text captured-text})
+
+(local tsp (lpeg.Ct (^ (+ (/ fennel-code tag-fennel)
+                          (/ html-code tag-html))
+                       1)))
+
+(local _testing {
+  : tag-fennel
+  : tag-html
   : fennel-code
   : html-code
+  : fennel-body
   : fennel-char
   : html-char
-  : t-open
   : t-close
+  : t-open
   : any
   : printable
   : unprintable
-}
+})
+
+(local export {
+  : tsp
+  : _testing
+})
+
+export

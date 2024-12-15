@@ -21,14 +21,14 @@
 (print tsp-code)
 
 
-(local matches (tg.tsp:match tsp-code))
-(print)
+(local tsp-segments (tg.tsp:match tsp-code))
 
-(if matches
-  (print* tsp-file-name* " is recognized as a valid Tarragon server page up until character index " matches "!")
-  (print* tsp-file-name* " is not recognized as a valid Tarragon server page."))
+(print "Now printing all Tarragon server pages code segments recognized...\n")
 
-(print)
+(each [i v (ipairs tsp-segments)]
+  (print* "Segment " i " is a " (. (. tsp-segments i) :language) " segment:")
+  (print (. (. tsp-segments i) :text))
+  (print))
 
 ;; It's worth noting here that it's actually impossible to create a text file
 ;; that isn't recognized as a valid Tarragon server page right now, and won't
