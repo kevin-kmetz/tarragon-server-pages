@@ -3,7 +3,7 @@
 (print "\nNow running 'tests/visual_test_01.fnl'...")
 
 (print "Loading the Tarragon library...")
-(local tg (require :tarragon))
+(local tg (require :tarragon/parser))
 
 (fn print* [...]
   (print (accumulate [concatenated ""
